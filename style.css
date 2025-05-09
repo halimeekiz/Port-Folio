@@ -1,0 +1,92 @@
+/* Selve headeren med lilla baggrund */
+.top {
+    background-image: url("billeder/lillabaggrund\ .png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 40px;
+    border-radius: 20px;
+    color: white;
+  }
+  
+  /* Boksen inde i headeren */
+  .header-box {
+    background-color: white;
+    border-radius: 21px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-sizing: border-box;
+  }
+  
+  /* Tekst-sektion ved siden af billedet */
+.text {
+    flex: 1; /* Fylder resten af pladsen */
+  }
+  
+  /* Profilbillede (rundt) */
+  .profil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+  }
+  
+  /* Tekst til højre */
+  .text h1 {
+    margin: 0;
+    font-size: 1.8em;
+  }
+  
+  .label {
+    font-family: "DM Sans", sans-serif;
+    background-color: #5f7bff;
+    color: white;
+    font-size: 0.7em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  
+  .hilsen {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #3f3260;
+  }
+  
+  .navn {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #3f3260;
+  }
+  
+  .kontakt {
+    color: #3f3260; /* mørkelilla – skift til ønsket farve */
+    font-size: 0.95em;
+  }
+  
+  .white-wrapper {
+    background-color: white;
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow:
+      0 0 0 8px #ffd6f3,     /* Inderste kant - lyserød */
+      0 0 0 16px #b69fdf,    /* Yderste kant - lilla */
+      0 15px 30px rgba(0, 0, 0, 0.1); /* Blød skygge */
+    box-sizing: border-box;
+  }
+  
+  
