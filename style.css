@@ -1,92 +1,239 @@
 /* Selve headeren med lilla baggrund */
 .top {
-    background-image: url("billeder/lillabaggrund\ .png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 40px;
-    border-radius: 20px;
-    color: white;
-  }
-  
+  background-image: url("billeder/lillabaggrund\ .png"); /* Sætter et billede som baggrund */
+  background-size: cover; /* Sørger for at baggrundsbilledet dækker hele elementets areal */
+  background-repeat: no-repeat; /* Undgår at baggrundsbilledet gentages */
+  background-position: center; /* Placerer billedet centreret i boksen */
+  padding: 80px 0;  /* Giver 80px luft både foroven og forneden inde i boksen (indvendig afstand) */
+  min-height: 100vh; /* Gør sektionen mindst lige så høj som hele skærmen (viewport height) */
+  border-radius: 0px; /* Giver sektionen spidse hjørner */
+  color: white; /* Sætter tekstfarven til hvid inde i sektionen */
+  position: relative; /* Gør sektionen til en reference for absolut placerede elementer inde i den */
+}
+
   /* Boksen inde i headeren */
   .header-box {
-    background-color: white;
-    border-radius: 21px;
-    padding: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    box-sizing: border-box;
-  }
+    position: relative; /* For at kunne bruge ::before relativt */
+    background: white; /* Hvid baggrund */
+    border-radius: 30px; /* Runde hjørner */
+    padding: 20px 40px; /* Luft inde i boksen */
+    width: calc(100% - 100px); /* Fylder næsten hele bredden */
+    margin: 0 auto; /* Centreret */
+    display: flex; /* Flex for layout */
+    align-items: center; /* Vertikal centreret */
+    gap: 30px; /* Afstand mellem elementer */
+    box-sizing: border-box; /* Medregn padding og border i bredden */
+    z-index: 2; /* Lægger sig over baggrund og ::before */
+    background: 
+    linear-gradient(white, white) padding-box, /* Selve boksen */
+    linear-gradient(45deg, #d1bcf6, #f0c7e4) border-box; /* Gradient ramme */
+    border: 30px solid transparent; /* Gør plads til gradientramme */
+    box-shadow: 0 0 60px rgba(209, 188, 246, 0.5), 0 0 80px rgba(240, 199, 228, 0.3);
+}
   
   /* Tekst-sektion ved siden af billedet */
-.text {
-    flex: 1; /* Fylder resten af pladsen */
-  }
+  .text {
+    flex: 1;               /* Fylder al ledig plads i flex-containeren (.header-box) ved siden af billedet */
+    margin-top: 10px;      /* Skubber hele tekstboksen lidt ned i forhold til billedet */
+    padding-left: 5px;    /* Laver 10px luft ind mod højre, så teksten ikke starter helt ude ved billedet */
+}
   
   /* Profilbillede (rundt) */
   .profil {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 5px solid white;
     object-fit: cover;
+    margin-top: -200px; /* Rykker billedet 200px op */
   }
-  
-  /* Tekst til højre */
-  .text h1 {
-    margin: 0;
-    font-size: 1.8em;
-  }
-  
+    
   .label {
-    font-family: "DM Sans", sans-serif;
-    background-color: #5f7bff;
-    color: white;
-    font-size: 0.7em;
-    padding: 4px 10px;
-    border-radius: 12px;
-    margin-left: 10px;
-    vertical-align: middle;
-  }
-  
+    position: absolute;           /* Placerer labelen absolut i forhold til nærmeste relative element (fx .header-box) */
+    top: 60px;                    /* Afstand på 60px fra topkanten af .header-box */
+    right: 100px;                  /* Afstand på 100px fra højrekanten af .header-box */
+    background-color: #5f7bff;  /* Giver baggrunden en blå farve */
+    color: white;               /* Sætter tekstfarven til hvid */
+    font-family: "DM Sans", sans-serif; /* Bruger DM Sans som skrifttype, med fallback til sans-serif */
+    font-size: 1em;               /* Sætter skriftstørrelsen til 1em (standard tekststørrelse) */
+    padding: 4px 20px;            /* Tilføjer 4px luft over og under teksten, og 10px luft til venstre og højre inde i boksen */
+    border-radius: 12px;          /* Giver labelen runde hjørner */
+    vertical-align: middle;       /* Justerer labelen vertikalt i forhold til linjen, hvis det bruges inline (her overflødigt pga. absolute) */
+}
+
   .hilsen {
     font-family: 'League Spartan', sans-serif;
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     color: #3f3260;
   }
   
   .navn {
     font-family: 'League Spartan', sans-serif;
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: bold;
     display: block;
     margin-bottom: 10px;
     color: #3f3260;
   }
   
+  .kontakt-boks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-family: "DM Sans", sans-serif;
+    padding-bottom: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .kontakt {
-    color: #3f3260; /* mørkelilla – skift til ønsket farve */
-    font-size: 0.95em;
-  }
+  font-weight: bold;
+  color: #3f3260;
+  font-size: 1.3em;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 5px;
+  width: fit-content;
+}
+
+.kontakt-links {
+  font-weight: bold;
+  display: flex;                           /* Bruger flexbox for at placere links på linje */
+  justify-content: center;                 /* Centrerer links horisontalt */
+  align-items: center;                     /* Centrerer links vertikalt i containeren */
+  gap: 20px;                               /* Laver 20px afstand mellem links */
+  color: #3f3260;                          /* Sætter tekstfarve til mørkelilla */
+  font-size: 1.3em;                        /* Sætter skriftstørrelse til standard 1em */
+  border-top: 1px solid #e0e0e0;           /* Tilføjer en tynd vandret streg over links */
+  border-bottom: 1px solid #e0e0e0;        /* Tilføjer en tynd vandret streg under links */
+  padding: 8px 0;                          /* Giver 5px luft over og under indholdet */
+}
+
+.kontakt-links a {
+    color: #3f3260;
+    text-decoration: none;
+}
+
+.divider {
+    width: 1px; /* tynd linje*/ 
+    height: 15px; /*Højden på stregen */
+    background-color: #e0e0e0; /* Farven */
+}
+
+.Intro {
+    font-weight: bold;
+    font-family: "Gilda Display", serif;
+    color: #3f3260; /* mørkelilla */
+    font-size: 1.2em;
+ }
   
-  .white-wrapper {
-    background-color: white;
-    border-radius: 30px;
-    padding: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-    box-shadow:
-      0 0 0 8px #ffd6f3,     /* Inderste kant - lyserød */
-      0 0 0 16px #b69fdf,    /* Yderste kant - lilla */
-      0 15px 30px rgba(0, 0, 0, 0.1); /* Blød skygge */
-    box-sizing: border-box;
-  }
-  
-  
+  .section-2 {
+    padding-top: 200px;        /* Skaber afstand fra toppen */
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.info-box {
+  background-color: white; /* Gør boksen hvid */
+  border-radius: 30px; /* Giver boksen afrundede hjørner */
+  padding: 60px 40px; /* Giver indvendig luft: 20px top/bund, 40px venstre/højre */
+  width: calc(100% - 100px); /* Boksen fylder næsten hele bredden, men efterlader 50px luft på hver side */
+  margin: -750px auto 0 auto; /* Trækker boksen 850px op, centrerer den horisontalt */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); /* Tilføjer en let skygge for at løfte boksen visuelt */
+  display: flex; /* Bruger flexbox til at arrangere indhold horisontalt inde i boksen */
+  align-items: center; /* Centrerer indholdet vertikalt i boksen */
+  gap: 30px; /* Laver 30px afstand mellem elementerne inde i boksen */
+  box-sizing: border-box; /* Inkluderer padding og border i den samlede bredde/højde */
+  position: relative; /* Tillader eventuelle absolut placerede elementer inde i boksen */
+  z-index: 2; /* Sørger for at boksen ligger over baggrunden (f.eks. lilla sektion) */
+}
+
+.experience-section {
+  padding: 60px 20px;
+  border-radius: 20px;
+  width: calc(100% - 100px);
+  margin: 50px auto;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.experience-box h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #3f3260;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 30px;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #e352a0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -7px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background-color: #e352a0;
+  border-radius: 50%;
+  border: 2px solid white;
+  z-index: 1;
+}
+
+.timeline-year {
+  display: inline-block;
+  background: #e352a0;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+  margin: 10px 0 5px 0;
+  color: #3f3260;
+  font-weight: bold;
+}
+
+.timeline-content strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #3f3260;
+}
+
+.timeline-content ul {
+  padding-left: 20px;
+}
+
+.timeline-content ul li {
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
