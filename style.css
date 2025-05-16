@@ -1,239 +1,467 @@
-/* Selve headeren med lilla baggrund */
+/* ==========================================
+   HEADER SEKTION (Lilla baggrund + profil)
+   ========================================== */
+
+/* Hele headerens baggrundsbillede og layout */
 .top {
-  background-image: url("billeder/lillabaggrund\ .png"); /* Sætter et billede som baggrund */
-  background-size: cover; /* Sørger for at baggrundsbilledet dækker hele elementets areal */
-  background-repeat: no-repeat; /* Undgår at baggrundsbilledet gentages */
-  background-position: center; /* Placerer billedet centreret i boksen */
-  padding: 80px 0;  /* Giver 80px luft både foroven og forneden inde i boksen (indvendig afstand) */
-  min-height: 100vh; /* Gør sektionen mindst lige så høj som hele skærmen (viewport height) */
-  border-radius: 0px; /* Giver sektionen spidse hjørner */
-  color: white; /* Sætter tekstfarven til hvid inde i sektionen */
-  position: relative; /* Gør sektionen til en reference for absolut placerede elementer inde i den */
+  background-image: url("billeder/lillabaggrund\ .png");                                  /* Lilla baggrundsbillede */
+  background-size: cover;                                                                 /* Dækker hele området */
+  background-repeat: no-repeat;                                                           /* Ingen gentagelse af billede */
+  background-position: center;                                                            /* Centreret billede */
+  padding: 20px 0 0 0;                                                                    /* Top padding */
+  min-height: 60vh;                                                                      /* Minimum højde = hele skærmens højde */
+  border-radius: 0px;                                                                     /* Ingen afrunding */
+  color: white;                                                                         /* Hvid tekstfarve i hele headeren */
+  position: relative;                                                                     /* Så vi kan placere elementer absolut inde i */
 }
 
-  /* Boksen inde i headeren */
-  .header-box {
-    position: relative; /* For at kunne bruge ::before relativt */
-    background: white; /* Hvid baggrund */
-    border-radius: 30px; /* Runde hjørner */
-    padding: 20px 40px; /* Luft inde i boksen */
-    width: calc(100% - 100px); /* Fylder næsten hele bredden */
-    margin: 0 auto; /* Centreret */
-    display: flex; /* Flex for layout */
-    align-items: center; /* Vertikal centreret */
-    gap: 30px; /* Afstand mellem elementer */
-    box-sizing: border-box; /* Medregn padding og border i bredden */
-    z-index: 2; /* Lægger sig over baggrund og ::before */
-    background: 
-    linear-gradient(white, white) padding-box, /* Selve boksen */
-    linear-gradient(45deg, #d1bcf6, #f0c7e4) border-box; /* Gradient ramme */
-    border: 30px solid transparent; /* Gør plads til gradientramme */
-    box-shadow: 0 0 60px rgba(209, 188, 246, 0.5), 0 0 80px rgba(240, 199, 228, 0.3);
+/* Boksen inde i headeren med profilbillede og tekst */
+.header-box {
+  margin-top: -80px;
+  position: relative;
+  background:
+    linear-gradient(white, white) padding-box,                                        /* Hvid baggrund */
+    linear-gradient(45deg, #d1bcf6, #f0c7e4) border-box;                              /* Lilla/pink gradient som ramme */
+  border-radius: 30px;                                                                    /* Runde hjørner */
+  padding: 50px 40px;                                                                     /* Indvendig afstand */
+  width: calc(100% - 100px);                                                              /* Næsten hele skærmens bredde */
+  margin: 0 auto;                                                                         /* Centreret */
+  display: flex;                                                                          /* Det påvirker kun placeringen horisontalt (altså fra venstre til højre midt på siden), men ikke lodret (op/ned).*/
+  flex-direction: row;                                                                    /* Tilføjet for at placere billedet til højre */
+  align-items: flex-start;                                                                /* Indeholdet starter i toppen */
+  gap: 40px;                                                                              /* Afstand mellem billede og tekst */
+  border: 30px solid transparent;                                                         /* Gør plads til gradientramme */
+  box-shadow: 0 0 60px rgb(255, 255, 255), 0 0 80px rgba(240, 199, 228, 0.3);         /* Blød skygge */
+  box-sizing: border-box;                                                                 /* Medregner padding og border i bredden */
+  z-index: 2;                                                                             /* Placeres over baggrunden */
+}
+
+/* Profilbillede */
+.profil {
+  width: 200px;
+  height: 200px;
+  border-radius: 60%;                                                                     /* Gør billedet rundt */
+  border: 4px solid #ffffff;                                                            /* Lilla kant */
+  object-fit: cover;                                                                      /* Fylder hele rammen uden at forvrænge billedet */
+  margin-left: auto;                                                                      /* Flytter billede mod højre side*/
+  margin-top: 0px;                                                                        /* Hæver billedet op */
+  box-shadow: 0 0 30px rgba(253, 253, 253, 0.4), 0 0 60px rgba(209, 188, 246, 0.3);   /* Blød skygge */
+  transition: all 0.3s ease-in-out;                                                       /* Glat overgang ved hover */
+  z-index: 10;                                                                            /* Vigtigt: Højere end intro-box */
+}
+
+/* Effekt på profilbilledet ved hover */
+.profil:hover {
+  transform: scale(1.05);                                                                 /* Gør billedet 5% større */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);                                          /* Kraftigere skygge ved hover */
 }
   
-  /* Tekst-sektion ved siden af billedet */
-  .text {
-    flex: 1;               /* Fylder al ledig plads i flex-containeren (.header-box) ved siden af billedet */
-    margin-top: 10px;      /* Skubber hele tekstboksen lidt ned i forhold til billedet */
-    padding-left: 5px;    /* Laver 10px luft ind mod højre, så teksten ikke starter helt ude ved billedet */
+ /* Overskrift område (Hej, navn, label) */
+ .text h1 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hilsen,
+.navn {
+  display: block;
+}
+
+/* Styling af blå label med teksten ' Student Programmer.....' */
+.label {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #a339d4;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.6em;
+  padding: 6px 20px;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+/* Styling af 'Hej! Jeg er'-teksten */
+.hilsen {
+  font-family: 'League Spartan', sans-serif;                                             /* Skrifttype */
+  font-size: 2em;                                                                        /* Stor tekst */
+  font-weight: bold;                                                                     /* Fed tekst */ 
+  margin-bottom: -100px;                                                                   /* Luft under teksten */
+  background: linear-gradient(to right, #ff5fea, #7d52e3);                           /* Gradient farve fra blå til pink */
+  background-clip: text;                                                                 /* Farve gælder kun på tekstens form */
+  -webkit-background-clip: text;                                                         /* Safari understøttelse */
+  -webkit-text-fill-color: transparent;                                                  /* Gør selve teksten gennemsigtig, så gradient vises */
+}
+
+/* Styling af navn ('Halime Ekiz Sen') */
+.navn {
+  font-family: 'League Spartan', sans-serif;                                             /* Skrifttype */
+  font-size: 1.75em;                                                                     /* Stor tekst */
+  font-weight: bold;                                                                     /* Fed tekst */
+  display: block;                                                                        /* Gør teksten til blok, så den tager hele linjen */
+  margin-bottom: 10px;                                                                   /* Luft under navnet */
+  color: #3f3260;                                                                      /* Mørk lilla tekstfarve */
+}
+
+/* Boksen med kontaktoplysninger (e-mail og links) */
+.kontakt-boks {
+  display: flex;                                                                         /* Bruger flexbox layout */
+  flex-direction: column;                                                                /* Viser indholdet lodret */
+  align-items: center;                                                                   /* Centrerer indhold horisontalt */
+  gap: 10px;                                                                             /* Afstand mellem elementer i boksen */
+  margin-top: 2.5rem;                                                                      /* Luft over boksen */
+  font-family: "DM Sans", sans-serif;                                                    /* Skrifttype */
+  padding-bottom: 5px;                                                                   /* Luft i bunden */
+  width: fit-content;                                                                    /* Bredden tilpasses indholdet */
+  margin-left: auto;                                                                     /* Centrerer boksen horisontalt */
+  margin-right: auto;                                                                    /* Centrerer boksen horisontalt */
+}
+
+/* E-mail tekst i kontaktboksen */
+.kontakt {
+  font-weight: bold;                                                                     /* Fed tekst */
+  color: #3f3260;                                                                      /* Mørk lilla tekstfarve */
+  font-size: 1.3em;                                                                      /* Lidt større tekst */
+  text-align: center;                                                                    /* Centrerer teksten */
+  margin: 0;                                                                             /* Ingen ekstra margin */
+  padding-bottom: 5px;                                                                   /* Luft i bunden */
+  width: fit-content;                                                                    /* Bredden tilpasses tekstens længde */
 }
   
-  /* Profilbillede (rundt) */
-  .profil {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 5px solid white;
-    object-fit: cover;
-    margin-top: -200px; /* Rykker billedet 200px op */
-  }
-    
-  .label {
-    position: absolute;           /* Placerer labelen absolut i forhold til nærmeste relative element (fx .header-box) */
-    top: 60px;                    /* Afstand på 60px fra topkanten af .header-box */
-    right: 100px;                  /* Afstand på 100px fra højrekanten af .header-box */
-    background-color: #5f7bff;  /* Giver baggrunden en blå farve */
-    color: white;               /* Sætter tekstfarven til hvid */
-    font-family: "DM Sans", sans-serif; /* Bruger DM Sans som skrifttype, med fallback til sans-serif */
-    font-size: 1em;               /* Sætter skriftstørrelsen til 1em (standard tekststørrelse) */
-    padding: 4px 20px;            /* Tilføjer 4px luft over og under teksten, og 10px luft til venstre og højre inde i boksen */
-    border-radius: 12px;          /* Giver labelen runde hjørner */
-    vertical-align: middle;       /* Justerer labelen vertikalt i forhold til linjen, hvis det bruges inline (her overflødigt pga. absolute) */
+/* Styling af ikoner (fx LinkedIn, GitHub) inde i kontakt-links */
+.kontakt-links i {
+  margin-right: 6px;                                                                     /* Giver 6px afstand mellem ikonet og teksten */
+  vertical-align: middle;                                                                /* Sørger for at ikonet flugter med tekstens midte */
+  font-size: 1.3em;                                                                      /* Gør ikonet lidt større end normal tekst */
 }
 
-  .hilsen {
-    font-family: 'League Spartan', sans-serif;
-    font-size: 1.75em;
-    font-weight: bold;
-    margin-bottom: 50px;
-    color: #3f3260;
-  }
-  
-  .navn {
-    font-family: 'League Spartan', sans-serif;
-    font-size: 1.75em;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-    color: #3f3260;
-  }
-  
-  .kontakt-boks {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    font-family: "DM Sans", sans-serif;
-    padding-bottom: 5px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .kontakt {
-  font-weight: bold;
-  color: #3f3260;
-  font-size: 1.3em;
-  text-align: center;
-  margin: 0;
-  padding-bottom: 5px;
-  width: fit-content;
-}
-
-.kontakt-links {
-  font-weight: bold;
-  display: flex;                           /* Bruger flexbox for at placere links på linje */
-  justify-content: center;                 /* Centrerer links horisontalt */
-  align-items: center;                     /* Centrerer links vertikalt i containeren */
-  gap: 20px;                               /* Laver 20px afstand mellem links */
-  color: #3f3260;                          /* Sætter tekstfarve til mørkelilla */
-  font-size: 1.3em;                        /* Sætter skriftstørrelse til standard 1em */
-  border-top: 1px solid #e0e0e0;           /* Tilføjer en tynd vandret streg over links */
-  border-bottom: 1px solid #e0e0e0;        /* Tilføjer en tynd vandret streg under links */
-  padding: 8px 0;                          /* Giver 5px luft over og under indholdet */
-}
-
+/* Styling af links inde i kontakt-links */
 .kontakt-links a {
-    color: #3f3260;
-    text-decoration: none;
+  font-size: 1.3em;   
+  font-weight: bold;    
+  color: #3f3260;                                                                      /* Giver links en mørk lilla farve */
+  text-decoration: none;                                                                 /* Fjerner understregning på links */
 }
 
+/* Styling når musen holdes over linket (hover-effekt) */
+.kontakt-links a:hover {
+  color: #e352a0;                                                                      /* Ændrer farve til pink når musen er over linket */
+}
+
+/* Styling af den lodrette streg mellem LinkedIn og GitHub links */
 .divider {
-    width: 1px; /* tynd linje*/ 
-    height: 15px; /*Højden på stregen */
-    background-color: #e0e0e0; /* Farven */
+  width: 1px;                                                                            /* Tykkelse af stregen */
+  height: 15px;                                                                          /* Højden på stregen */
+  background-color: #e0e0e0;                                                           /* Lys grå farve til stregen */
 }
 
-.Intro {
-    font-weight: bold;
-    font-family: "Gilda Display", serif;
-    color: #3f3260; /* mørkelilla */
-    font-size: 1.2em;
- }
-  
-  .section-2 {
-    padding-top: 200px;        /* Skaber afstand fra toppen */
-    padding-bottom: 100px;
-    position: relative;
+ /* INTRO BOX - Om mig! */
+.intro-box {
+  position: absolute;                                                                    /* Gør intro-boksen flydende ovenpå header-box */
+  right: 40px;                                                                           /* Placerer den 40px fra højre */
+  top: 150px;                                                                            /* Placerer den under profilbilledet */
+  background-color: #ba96f8;                                                           /* Lilla baggrundsfarve for boksen */
+  border: 6px solid white;                                                             /* Hvid kant rundt om boksen */
+  border-radius: 20px;                                                                   /* Runde hjørner for blødere look */
+  padding: 20px;                                                                         /* Luft indvendigt i boksen */
+  max-width: 800px;                                                                      /* Gør den ikke for bred */
+  color: #000000;                                                                      /* Sort tekstfarve */
+  box-shadow: 0 8px 30px rgba(209, 188, 246, 0.2);                                     /* Blød skygge-effekt for dybde */
+  font-family: 'Poppins', sans-serif;                                                    /* Skrifttype */
+  font-size: 1em;                                                                        /* Standard tekststørrelse */
+  text-align: left;                                                                      /* Venstrestillet tekst */
+  line-height: 2;                                                                        /* Dobbelt linjeafstand for bedre læsbarhed */
+  z-index: 5;                                                                            /* Sørger for at intro-box ligger over andre elementer
+                                                                                          HUSK: z-index styrer hvad der ligger ovenpå (jo højere tal, jo længere "frem" i lagene) */
 }
 
+  .intro-label {
+    display: inline-block;                                                              /* Gør labelen til en inline-boks, så den kan få padding og baggrund */
+    background-color: #a339d4;                                                        /* Blå baggrundsfarve */
+    color: white;                                                                     /* Hvid tekstfarve */
+    font-weight: bold;                                                                  /* Fed tekst */
+    font-size: 1.6em;                                                                   /* Let forstørret tekst */
+    padding: 6px 20px;                                                                  /* Luft inde i labelen */
+    border-radius: 20px;                                                                /* Runde hjørner på labelen */
+    margin-bottom: 20px;                                                                /* Luft under labelen til teksten */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);                                           /* Let skygge under labelen for dybde */
+}
+ /* ==========================================
+   LAYOUT SECTION-2 (Venstre og højre kolonne)
+   ========================================== */
+
+ /* Hele sektionen der indeholder både venstre og højre kolonne */
+.section-2 {
+  margin-top: 120px;                                                                     /* Afstand til toppen af sektionen */
+  padding-top: 0;                                                                       /* Ingen ekstra luft i toppen */
+  padding-bottom: 100px;                                                                /* Luft i bunden af sektionen */
+  position: relative;                                                                   /* Position relativt for at kunne stable elementer */
+  z-index: 2;                                                                           /* Ligger over baggrundselementer */
+}
+
+/* Boksen der holder begge kolonner */
 .info-box {
-  background-color: white; /* Gør boksen hvid */
-  border-radius: 30px; /* Giver boksen afrundede hjørner */
-  padding: 60px 40px; /* Giver indvendig luft: 20px top/bund, 40px venstre/højre */
-  width: calc(100% - 100px); /* Boksen fylder næsten hele bredden, men efterlader 50px luft på hver side */
-  margin: -750px auto 0 auto; /* Trækker boksen 850px op, centrerer den horisontalt */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); /* Tilføjer en let skygge for at løfte boksen visuelt */
-  display: flex; /* Bruger flexbox til at arrangere indhold horisontalt inde i boksen */
-  align-items: center; /* Centrerer indholdet vertikalt i boksen */
-  gap: 30px; /* Laver 30px afstand mellem elementerne inde i boksen */
-  box-sizing: border-box; /* Inkluderer padding og border i den samlede bredde/højde */
-  position: relative; /* Tillader eventuelle absolut placerede elementer inde i boksen */
-  z-index: 2; /* Sørger for at boksen ligger over baggrunden (f.eks. lilla sektion) */
+  background-color: white;                                                            /* Hvid baggrundsboks */
+  border-radius: 30px;                                                                  /* Runde hjørner */
+  padding: 60px 40px;                                                                   /* Indvendig luft hele vejen rundt */
+  width: calc(100% - 100px);                                                            /* Næsten fuld bredde med luft i siderne */
+  margin: -300px auto 0 auto;                                                           /* Trækker boksen op og centrerer den horisontalt */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 16px 60px rgba(0, 0, 0, 0.08);
+  display: flex;                                                                        /* Flexbox layout for kolonnerne */
+  align-items: stretch;                                                                 /* Kolonner strækkes i højden */
+  gap: 40px;                                                                            /* Afstand mellem kolonnerne */
+  box-sizing: border-box;                                                               /* Inkluderer padding i bredden */
+  position: relative;                                                                   /* Relativ positionering */
+  z-index: 2;                                                                           /* Sørger for at ligge øverst */
 }
 
+/* ==========================================
+   VENSTRE KOLONNE (Work Experiences)
+   ========================================== */
+
+/* Venstre kolonne der viser arbejdserfaringer */
+.left-column {
+  flex: 1.1;                                                                              /* Fylder 2/3 af boksen */
+  border-right: 2px solid #e0e0e0;                                                    /* Lodret skillelinje til højre */
+  padding-right: 20px;                                                                  /* Luft til højre for indholdet */
+  box-sizing: border-box;                                                               /* Inkluderer padding og border i elementets samlede størrelse */
+  font-family: 'DM Sans', sans-serif;                                                   /* Skrifttype */
+  font-size: 1.5em;                                                                     /* Tekststørrelse */
+  line-height: 1.7;                                                                     /* Linjeafstand */
+  color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
+}
+
+/* Sektion med erfaringer */
 .experience-section {
-  padding: 60px 20px;
-  border-radius: 20px;
-  width: calc(100% - 100px);
-  margin: 50px auto;
-  font-family: 'DM Sans', sans-serif;
+  padding: 0;                                                                           /* Ingen indvendig luft */
+  margin: 0;                                                                            /* Ingen udvendig luft */
+  width: 100%;                                                                          /* Fylder hele kolonnen */
 }
 
+/* Overskrift til erfaringer */
 .experience-box h2 {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #3f3260;
-  font-size: 1.5em;
-  margin-bottom: 30px;
-  position: relative;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #eee;
+  text-transform: uppercase;                                                            /* Gør teksten til store bogstaver */
+  letter-spacing: 1px;                                                                  /* Afstand mellem bogstaver */
+  color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
+  font-size: 1.5em;                                                                     /* Større tekst */
+  margin-bottom: 30px;                                                                  /* Luft under overskriften */
+  position: relative;                                                                   /* Relativ positionering */
+  padding-bottom: 10px;                                                                 /* Luft under teksten før stregen */
+  border-bottom: 2px solid #eee;                                                      /* Lys grå bundstreg */
 }
 
+/* Timeline container der holder stregen og punkterne */
 .timeline {
-  position: relative;
-  margin-left: 30px;
-  padding-left: 20px;
+  position: relative;                                                                   /* Relativ positionering */
+  margin-left: 30px;                                                                    /* Luft til venstre */
+  padding-left: 20px;                                                                   /* Luft inde i boksen */
 }
 
+
+/* Den lodrette streg i timeline */
 .timeline::before {
-  content: "";
+  content: "";                                                                          /* Tomt indhold til at skabe stregen */
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: #e352a0;
+  width: 3px;                                                                           /* Tykkelse på stregen */
+  background: #e352a0;                                                                /* Pink farve til stregen */
 }
 
+/* Hvert punkt i timeline (arbejdserfaring) */
 .timeline-item {
-  position: relative;
-  margin-bottom: 50px;
-  padding-left: 40px;
+  position: relative;                                                                   /* Relativ position */
+  margin-bottom: 50px;                                                                  /* Luft mellem hvert job */
+  padding-left: 40px;                                                                   /* Luft til venstre for indholdet */
 }
 
+/* Prik ved hvert job */
 .timeline-dot {
   position: absolute;
-  left: -7px;
-  top: 5px;
-  width: 14px;
-  height: 14px;
-  background-color: #e352a0;
-  border-radius: 50%;
-  border: 2px solid white;
-  z-index: 1;
+  left: -7px;                                                                           /* Placering lidt til venstre for stregen */
+  top: 5px;                                                                             /* Lidt nede fra toppen */
+  width: 14px;                                                                          /* Størrelse på prikken */
+  height: 14px;                                                                         /* Højde på prikken */
+  background-color: #e352a0;                                                          /* Pink farve */
+  border-radius: 50%;                                                                   /* Gør prikken rund */
+  border: 2px solid white;                                                            /* Hvid kant rundt om prikken */
+  z-index: 1;                                                                           /* Sørger for at ligge over stregen */
 }
 
+/* Årstal badge */
 .timeline-year {
-  display: inline-block;
-  background: #e352a0;
-  color: white;
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  display: inline-block;                                                                /* Viser årstal som blok */
+  background: #e352a0;                                                                /* Pink baggrund */
+  color: white;                                                                       /* Hvid tekst */
+  padding: 6px 15px;                                                                    /* Luft omkring teksten */
+  border-radius: 20px;                                                                  /* Runde hjørner */
+  font-weight: bold;                                                                    /* Fed skrift */
+  margin-bottom: 15px;                                                                  /* Luft under årstallet */
 }
 
+/* Virksomhedsnavn */
 .timeline-content h3 {
-  margin: 10px 0 5px 0;
-  color: #3f3260;
-  font-weight: bold;
+  margin: 10px 0 5px 0;                                                                 /* Luft over og under overskriften */
+  color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
+  font-weight: bold;                                                                    /* Fed tekst */
 }
 
+/* Jobtitel */
 .timeline-content strong {
-  display: block;
-  margin-bottom: 8px;
+  display: block;                                                                       /* Viser teksten som blok */
+  margin-bottom: 8px;                                                                   /* Luft under teksten */
+  color: #3f3260;                                                                     /* Mørk lilla farve */
+}
+
+/* Liste over opgaver */
+.timeline-content ul {
+  padding-left: 20px;                                                                   /* Luft ind til venstre for liste */
+}
+
+/* Opgaveliste punkter */
+.timeline-content ul li {
+  color: #333;                                                                        /* Mørkegrå tekstfarve */
+  margin-bottom: 8px;                                                                   /* Luft under hvert punkt */
+  line-height: 1.6;                                                                     /* Linjeafstand */
+}
+
+.evolution-billede {
+  display: block;                                                                       /* Gør at den kan centreres */
+  margin: 30px auto 0 auto;                                                             /* Centrerer billedet i kolonnen med top-margin */
+  width: 90%;                                                                           /* Billedets bredde ift. kolonnen */
+  height: auto;                                                                         /* Beholder proportioner */
+  max-width: 1200px;                                                                    /* Giver en max størrelse så det ikke bliver for stort */
+}
+
+
+/* ==========================================
+   HØJRE KOLONNE (Skills, Education, Languages, Competences)
+   ========================================== */
+
+/* Højre kolonne med færdigheder, uddannelse, sprog og kompetencer */
+.right-column {
+  flex: 1;                                                                              /* Fylder 1/3 af boksen */
+  display: flex;                                                                        /* Flex layout */
+  flex-direction: column;                                                               /* Viser sektioner lodret */
+  gap: 40px;                                                                            /* Afstand mellem sektioner */
+  padding-left: 20px;                                                                   /* Luft til venstre */
+  font-family: 'DM Sans', sans-serif;                                                   /* Skrifttype */
+  font-size: 1.5em;                                                                     /* Tekststørrelse */
+  line-height: 1.7;                                                                     /* Linjeafstand */
+  color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
+}
+
+/* Overskrifter i højre kolonne */
+.right-column h2 {
+  text-transform: uppercase;                                                            /* Store bogstaver */
+  letter-spacing: 1px;                                                                  /* Afstand mellem bogstaver */
+  color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
+  font-size: 1.5em;                                                                     /* Større tekst */
+  margin-bottom: 15px;                                                                  /* Luft under overskriften */
+  border-bottom: 2px solid #eee;                                                      /* Lys grå bundstreg */
+  padding-bottom: 5px;                                                                  /* Luft under teksten */
+}
+
+.education-section ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.education-section ul li strong {
+  font-weight: bold;
   color: #3f3260;
 }
 
-.timeline-content ul {
+.education-list {
+  list-style-type: disc;                                                              /* Aktiverer bullets */
+  padding-left: 20px;                                                                 /* Giver plads til bullet */
+}
+
+.education-list li {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.course-title {
+  font-weight: bold;
+  color: #3f3260;
+}
+
+.course-date {
+  white-space: nowrap;
+  color: #3f3260;
+}
+
+
+/* Punktliste til skills */
+.skills-list {
+  list-style-type: disc;                                                                /* Standard punktliste */
+  padding-left: 20px;                                                                   /* Luft ind til venstre */
+}
+
+/* Hvert punkt i skills */
+.skills-list li {
+  color: #333;                                                                        /* Mørkegrå tekstfarve */
+  margin-bottom: 8px;                                                                   /* Luft under hvert punkt */
+  line-height: 1.6;                                                                     /* Linjeafstand */
+}
+
+/* Tags for skills */
+.skills-tags {
+  display: flex;                                                                        /* Flexbox layout */
+  gap: 10px;                                                                            /* Luft mellem tags */
+  flex-wrap: wrap;                                                                      /* Tillader at tags hopper til ny linje hvis nødvendigt */
+  margin-top: 15px;                                                                     /* Luft over tags */
+}
+
+/* Hvert tag */
+.skills-tags span {
+  background-color: #f7b6d2;                                                         /* Lys pink baggrund */
+  color: #3f3260;                                                                    /* Mørk lilla tekst */
+  padding: 6px 14px;                                                                   /* Luft omkring teksten */
+  border-radius: 20px;                                                                 /* Runde hjørner */
+  font-weight: bold;                                                                   /* Fed tekst */
+  font-size: 1.3em;                                                                    /* Let forstørret tekst */
+}
+
+.language-list {
+  list-style-type: disc;
   padding-left: 20px;
 }
 
-.timeline-content ul li {
-  color: #333;
-  margin-bottom: 8px;
-  line-height: 1.6;
+.language-list li {
+  color: #3f3260;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+/* Denne klasse definerer selve "baren" (den grå baggrund) for sprogniveauet */
+.language-list .bar {
+  display: block;                                                                     /* Gør elementet til en blok, så det tager hele linjens bredde */
+  height: 6px;                                                                        /* Bestemmer højden på baren */
+  background-color: #e0e0e0;                                                        /* Grå baggrund som er den "tomme" del af baren */
+  border-radius: 3px;                                                                 /* Afrunder hjørnerne for et blødere udtryk */
+  margin-top: 5px;                                                                    /* Lidt afstand fra teksten ovenover */
+  overflow: hidden;                                                                   /* Skjuler indhold der går ud over barens kanter */
+  position: relative;                                                                 /* Gør det muligt at placere ::after absolut inde i baren */
+}
+
+/* Denne pseudo-element bruges til at skabe den farvede "fyldte" del af baren (progress effekt) */
+.language-list .bar::after {
+  content: '';                                                                       /* Påkrævet for at lave et pseudo-element */
+  display: block;                                                                    /* Gør det synligt som en blok */
+  height: 100%;                                                                      /* Fylder hele højden af baren */
+  background: linear-gradient(90deg, #5f7bff, #e352a0);                          /* Farver baren med en blå-pink gradient */
+  border-radius: 3px;                                                                /* Matcher den samme afrunding som baggrunden */
+  position: absolute;                                                                /* Positionerer den inde i .bar (relativ parent) */
+  top: 0;                                                                            /* Starter helt i toppen */
+  left: 0;                                                                           /* Starter helt til venstre */
+  width: 100%;                                                                       /* Fylder hele barens bredde som standard */
 }
