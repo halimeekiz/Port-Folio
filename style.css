@@ -9,7 +9,7 @@
   background-repeat: no-repeat;                                                           /* Ingen gentagelse af billede */
   background-position: center;                                                            /* Centreret billede */
   padding: 20px 0 0 0;                                                                    /* Top padding */
-  min-height: 80vh;                                                                       /* Minimum højde = hele skærmens højde */
+  min-height: 800px;                                                                       /* Minimum højde = hele skærmens højde */
   border-radius: 0px;                                                                     /* Ingen afrunding */
   color: white;                                                                         /* Hvid tekstfarve i hele headeren */
   position: relative;                                                                     /* Så vi kan placere elementer absolut inde i */
