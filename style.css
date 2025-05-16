@@ -9,7 +9,7 @@
   background-repeat: no-repeat;                                                           /* Ingen gentagelse af billede */
   background-position: center;                                                            /* Centreret billede */
   padding: 20px 0 0 0;                                                                    /* Top padding */
-  min-height: 60vh;                                                                      /* Minimum højde = hele skærmens højde */
+  min-height: 80vh;                                                                       /* Minimum højde = hele skærmens højde */
   border-radius: 0px;                                                                     /* Ingen afrunding */
   color: white;                                                                         /* Hvid tekstfarve i hele headeren */
   position: relative;                                                                     /* Så vi kan placere elementer absolut inde i */
@@ -26,6 +26,7 @@
   padding: 50px 40px;                                                                     /* Indvendig afstand */
   width: calc(100% - 100px);                                                              /* Næsten hele skærmens bredde */
   margin: 0 auto;                                                                         /* Centreret */
+  margin-bottom: 50%;
   display: flex;                                                                          /* Det påvirker kun placeringen horisontalt (altså fra venstre til højre midt på siden), men ikke lodret (op/ned).*/
   flex-direction: row;                                                                    /* Tilføjet for at placere billedet til højre */
   align-items: flex-start;                                                                /* Indeholdet starter i toppen */
