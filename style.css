@@ -467,26 +467,34 @@
 
 /* === MOBILVENLIG VISNING UNDER 768PX === */
 @media (max-width: 768px) {
+  /* Topsektion tilpasses mobil */
   .top {
-    min-height: auto;
-    padding: 20px 0;
+    min-height: auto;                                                               /* Fjern fast højde så den følger indholdet */
+    padding: 20px 0;                                                                /* Mindre top og bund padding */
+
+    /* FJERN baggrundsbillede kun på mobil */
+    background-image: none;
+    background-color: #f4ebff;                                                    /* Erstatter billedet med en farve */
   }
 
+  /* Hele boksen med profil og tekst */
   .header-box {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    gap: 20px;
+    flex-direction: column;                                                         /* Lægger tekst og billede over hinanden */
+    align-items: center;                                                            /* Centrerer indholdet horisontalt */
+    width: 100%;                                                                    /* Fylder hele mobilskærmens bredde */
+    padding: 20px;                                                                  /* Luft rundt om indholdet */
+    gap: 20px;                                                                      /* Luft mellem tekst og billede */
     box-sizing: border-box;
   }
 
+  /* Profilbillede mindre på mobil */
   .profil {
     width: 130px;
     height: 130px;
     margin: 0 auto;
   }
 
+  /* Hej + navn-teksten centreret og mindre */
   .text h1 {
     text-align: center;
     font-size: 1.5em;
@@ -503,6 +511,7 @@
     font-size: 1.3em;
   }
 
+  /* Label (student programmer...) centreret og mindre */
   .label {
     position: static;
     transform: none;
@@ -511,8 +520,13 @@
     margin: 0 auto;
     display: inline-block;
     text-align: center;
+
+    /* FARVEÆNDRING (du kan ændre farven her kun for mobil): */
+    background-color: #e352a0;
+    color: white;
   }
 
+  /* Kontaktsektion justeres lodret */
   .kontakt-boks {
     align-items: center;
     text-align: center;
@@ -520,7 +534,7 @@
   }
 
   .kontakt-links {
-    flex-direction: column;
+    flex-direction: column;     /* Linkene vises lodret på mobil */
     gap: 12px;
   }
 
@@ -529,9 +543,10 @@
   }
 
   .divider {
-    display: none;
+    display: none;              /* Fjerner stregen mellem links */
   }
 
+  /* Intro-boksen (om mig) placeres under header og strækkes */
   .intro-box {
     position: static;
     width: 90%;
@@ -539,14 +554,18 @@
     padding: 15px;
     font-size: 0.95em;
     line-height: 1.7;
+
+    /* Baggrundsfarve kun på mobil (kan ændres): */
+    background-color: #f4ebff;
   }
 
+  /* Sektion-2 (erfaring + uddannelse) gøres mobilvenlig */
   .section-2 {
     margin-top: 40px;
   }
 
   .info-box {
-    flex-direction: column;
+    flex-direction: column;        /* Lægger venstre og højre kolonne lodret */
     width: 95%;
     padding: 30px 20px;
     margin: 0 auto;
@@ -554,6 +573,7 @@
     gap: 40px;
   }
 
+  /* Begge kolonner fylder 100% og har ingen streg */
   .left-column,
   .right-column {
     width: 100%;
@@ -561,6 +581,7 @@
     padding: 0;
   }
 
+  /* Evolution-billede skaleres til mobil */
   .evolution-billede {
     width: 100%;
     margin-top: 30px;
