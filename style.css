@@ -4,7 +4,7 @@
 
 /* Hele headerens baggrundsbillede og layout */
 .top {
-  background-image: url("billeder/lillabaggrund\ .png");                                  /* Lilla baggrundsbillede */
+  background-image: url(billeder/lillabaggrund.png);                                      /* Lilla baggrundsbillede */
   background-size: cover;                                                                 /* Dækker hele området */
   background-repeat: no-repeat;                                                           /* Ingen gentagelse af billede */
   background-position: center;                                                            /* Centreret billede */
