@@ -477,6 +477,18 @@
     background-color: #f4ebff;                                                    /* Erstatter billedet med en farve */
   }
 
+  .left-column,
+  .right-column {
+    font-size: 1em;        /* Mindre tekststørrelse – fx 0.95em for endnu mindre */
+    line-height: 1.6;      /* Lidt mindre linjeafstand */
+    padding: 10px 0;
+  }
+
+  body {
+    background-color: white;
+    color: #3f3260;
+  }
+  
   /* Hele boksen med profil og tekst */
   .header-box {
     flex-direction: column;                                                         /* Lægger tekst og billede over hinanden */
@@ -484,6 +496,7 @@
     width: 100%;                                                                    /* Fylder hele mobilskærmens bredde */
     padding: 20px;                                                                  /* Luft rundt om indholdet */
     gap: 20px;                                                                      /* Luft mellem tekst og billede */
+    background-color: #f4ebff;
     box-sizing: border-box;
   }
 
