@@ -588,7 +588,7 @@
 /* === TVINGER LYS TEMA VED DARK MODE === */
 @media (prefers-color-scheme: dark) {
   body, .top, .info-box, .header-box, .intro-box {
-    background-color: #ffffff !important;
+    background-color: #c6badb !important;
     color: #3f3260 !important;
   }
 }
