@@ -469,6 +469,15 @@
 @media (max-width: 768px) {
   .top {
     min-height: auto;
+    padding: 20px 0;
+  }
+
+  .header-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 20px;
+    width: 95%;
   }
 
   .intro-box {
@@ -476,77 +485,61 @@
     margin-top: 20px;
     right: auto;
     top: auto;
-    max-width: none;         /* ← Fjerner desktop-begrænsning */
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .header-box {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 30px 20px;
-  }
-
-  .profil {
-    margin-left: 0;
-    margin-top: 0;
-  }
-
-  .text h1 {
-    text-align: center;
-    font-size: 1.5em;
-  }
-
-  .label {
-    font-size: 1.2em;
-    position: static;
-    transform: none;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .kontakt-boks {
-    align-items: center;
-    text-align: center;
-  }
-}
-
-/* === TILPASNING TIL MINDRE PC-SKÆRME UNDER 1200PX === */
-@media (max-width: 1200px) {
-  .intro-box {
-    position: static;
-    right: auto;
-    top: auto;
-    margin-top: 30px;
     max-width: none;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .header-box {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  .profil {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
   }
 
-  .profil {
-    margin-left: 0;
+  .text h1 {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+
+  .hilsen {
+    font-size: 1.2em;
+    margin-bottom: 0;
+  }
+
+  .navn {
+    font-size: 1.3em;
   }
 
   .label {
     position: static;
     transform: none;
-    margin-bottom: 15px;
+    font-size: 1em;
+    padding: 6px 12px;
     text-align: center;
+    display: inline-block;
+    margin: 10px auto;
   }
 
   .kontakt-boks {
     align-items: center;
     text-align: center;
   }
+
+  .kontakt-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kontakt-links a {
+    font-size: 1em;
+  }
+
+  .divider {
+    display: none; /* Fjern stregen på mobil */
+  }
 }
+
 
 
