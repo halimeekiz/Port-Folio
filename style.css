@@ -583,4 +583,12 @@
     width: 100%;
     margin-top: 30px;
   }
+
+  @media (prefers-color-scheme: dark) {
+    body, .top, .info-box, .header-box, .intro-box {
+      background-color: #ffffff !important;
+      color: #3f3260 !important;
+    }
+  }
+  
 }
