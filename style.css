@@ -474,14 +474,6 @@
     background-color: #f4ebff;
   }
 
-/* === TVINGER LYS TEMA VED DARK MODE === */
-@media (prefers-color-scheme: dark) {
-  body, .top, .info-box, .header-box, .intro-box {
-    background-color: #ffffff !important;
-    color: #3f3260 !important;
-  }
-}
-
   body {
     background-color: white;
     color: #3f3260;
@@ -564,7 +556,7 @@
     padding: 15px;
     font-size: 0.95em;
     line-height: 1.7;
-    background-color: #f4ebff;
+    background-color: #ccb2ec;
   }
 
   .section-2 {
@@ -591,5 +583,12 @@
     width: 100%;
     margin-top: 30px;
   }
-  
+}
+
+/* === TVINGER LYS TEMA VED DARK MODE === */
+@media (prefers-color-scheme: dark) {
+  body, .top, .info-box, .header-box, .intro-box {
+    background-color: #ffffff !important;
+    color: #3f3260 !important;
+  }
 }
