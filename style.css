@@ -108,31 +108,26 @@
   color: #3f3260;                                                                      /* Mørk lilla tekstfarve */
 }
 
-/* Boksen med kontaktoplysninger (e-mail og links) */
+/* Boksen med kontaktoplysninger (links) */
 .kontakt-boks {
   display: flex;                                                                         /* Bruger flexbox layout */
   flex-direction: column;                                                                /* Viser indholdet lodret */
   align-items: center;                                                                   /* Centrerer indhold horisontalt */
   gap: 10px;                                                                             /* Afstand mellem elementer i boksen */
-  margin-top: 2.5rem;                                                                      /* Luft over boksen */
+  margin-top: 2.5rem;                                                                    /* Luft over boksen */
   font-family: "DM Sans", sans-serif;                                                    /* Skrifttype */
   padding-bottom: 5px;                                                                   /* Luft i bunden */
   width: fit-content;                                                                    /* Bredden tilpasses indholdet */
   margin-left: auto;                                                                     /* Centrerer boksen horisontalt */
   margin-right: auto;                                                                    /* Centrerer boksen horisontalt */
 }
-
-/* E-mail tekst i kontaktboksen */
-.kontakt {
-  font-weight: bold;                                                                     /* Fed tekst */
-  color: #3f3260;                                                                      /* Mørk lilla tekstfarve */
-  font-size: 1.3em;                                                                      /* Lidt større tekst */
-  text-align: center;                                                                    /* Centrerer teksten */
-  margin: 0;                                                                             /* Ingen ekstra margin */
-  padding-bottom: 5px;                                                                   /* Luft i bunden */
-  width: fit-content;                                                                    /* Bredden tilpasses tekstens længde */
-}
   
+.kontakt-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;                                                                             /* Juster mellemrummet som ønsket */
+}
+
 /* Styling af ikoner (fx LinkedIn, GitHub) inde i kontakt-links */
 .kontakt-links i {
   margin-right: 6px;                                                                     /* Giver 6px afstand mellem ikonet og teksten */
@@ -163,13 +158,13 @@
  /* INTRO BOX - Om mig! */
 .intro-box {
   position: absolute;                                                                    /* Gør intro-boksen flydende ovenpå header-box */
-  right: 40px;                                                                           /* Placerer den 40px fra højre */
+  right: 10px;                                                                           /* Placerer den 10px fra højre */
   top: 150px;                                                                            /* Placerer den under profilbilledet */
   background-color: #ba96f8;                                                           /* Lilla baggrundsfarve for boksen */
   border: 6px solid white;                                                             /* Hvid kant rundt om boksen */
   border-radius: 20px;                                                                   /* Runde hjørner for blødere look */
-  padding: 20px;                                                                         /* Luft indvendigt i boksen */
-  max-width: 800px;                                                                      /* Gør den ikke for bred */
+  padding: 15px;                                                                         /* Luft indvendigt i boksen */
+  max-width: 650px;                                                                      /* Gør den ikke for bred */
   color: #000000;                                                                      /* Sort tekstfarve */
   box-shadow: 0 8px 30px rgba(209, 188, 246, 0.2);                                     /* Blød skygge-effekt for dybde */
   font-family: 'Poppins', sans-serif;                                                    /* Skrifttype */
@@ -226,7 +221,7 @@
 
 /* Venstre kolonne der viser arbejdserfaringer */
 .left-column {
-  flex: 1.1;                                                                              /* Fylder 2/3 af boksen */
+  flex: 1.1;                                                                            /* Fylder 2/3 af boksen */
   border-right: 2px solid #e0e0e0;                                                    /* Lodret skillelinje til højre */
   padding-right: 20px;                                                                  /* Luft til højre for indholdet */
   box-sizing: border-box;                                                               /* Inkluderer padding og border i elementets samlede størrelse */
@@ -234,6 +229,7 @@
   font-size: 1.5em;                                                                     /* Tekststørrelse */
   line-height: 1.7;                                                                     /* Linjeafstand */
   color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
+  background-color: #f2f2f2; /* Lys lilla – du kan ændre til en anden farve */
 }
 
 /* Sektion med erfaringer */
@@ -246,6 +242,7 @@
 /* Overskrift til erfaringer */
 .experience-box h2 {
   text-transform: uppercase;                                                            /* Gør teksten til store bogstaver */
+  text-align: center;
   letter-spacing: 1px;                                                                  /* Afstand mellem bogstaver */
   color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
   font-size: 1.5em;                                                                     /* Større tekst */
@@ -362,6 +359,7 @@
   text-transform: uppercase;                                                            /* Store bogstaver */
   letter-spacing: 1px;                                                                  /* Afstand mellem bogstaver */
   color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
+  text-align: center;
   font-size: 1.5em;                                                                     /* Større tekst */
   margin-bottom: 15px;                                                                  /* Luft under overskriften */
   border-bottom: 2px solid #eee;                                                      /* Lys grå bundstreg */
@@ -466,3 +464,89 @@
   left: 0;                                                                           /* Starter helt til venstre */
   width: 100%;                                                                       /* Fylder hele barens bredde som standard */
 }
+
+/* === MOBILVENLIG VISNING UNDER 768PX === */
+@media (max-width: 768px) {
+  .top {
+    min-height: auto;
+  }
+
+  .intro-box {
+    position: static;
+    margin-top: 20px;
+    right: auto;
+    top: auto;
+    max-width: none;         /* ← Fjerner desktop-begrænsning */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .profil {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .text h1 {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .label {
+    font-size: 1.2em;
+    position: static;
+    transform: none;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .kontakt-boks {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* === TILPASNING TIL MINDRE PC-SKÆRME UNDER 1200PX === */
+@media (max-width: 1200px) {
+  .intro-box {
+    position: static;
+    right: auto;
+    top: auto;
+    margin-top: 30px;
+    max-width: none;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .profil {
+    margin-left: 0;
+  }
+
+  .label {
+    position: static;
+    transform: none;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .kontakt-boks {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
