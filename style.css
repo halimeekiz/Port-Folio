@@ -479,14 +479,14 @@
 
   .left-column,
   .right-column {
-    font-size: 1em;        /* Mindre tekststørrelse – fx 0.95em for endnu mindre */
-    line-height: 1.6;      /* Lidt mindre linjeafstand */
+    font-size: 1em;                                                                 /* Mindre tekststørrelse – fx 0.95em for endnu mindre */
+    line-height: 1.6;                                                               /* Lidt mindre linjeafstand */
     padding: 10px 0;
   }
 
   body {
     background-color: white;
-    color: #3f3260;
+    color: #cac3dd;
   }
   
   /* Hele boksen med profil og tekst */
