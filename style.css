@@ -229,7 +229,7 @@
   font-size: 1.5em;                                                                     /* Tekststørrelse */
   line-height: 1.7;                                                                     /* Linjeafstand */
   color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
-  background-color: #f2f2f2; /* Lys lilla – du kan ændre til en anden farve */
+  background-color: #f2f2f2;                                                         
 }
 
 /* Sektion med erfaringer */
@@ -264,8 +264,8 @@
 .timeline::before {
   content: "";                                                                          /* Tomt indhold til at skabe stregen */
   position: absolute;
-  left: 0;
-  top: 0;
+  left: -7;
+  top: 5px;
   bottom: 0;
   width: 3px;                                                                           /* Tykkelse på stregen */
   background: #e352a0;                                                                /* Pink farve til stregen */
@@ -467,129 +467,157 @@
 
 /* === MOBILVENLIG VISNING UNDER 768PX === */
 @media (max-width: 768px) {
+
+
+/* --- Øverste sektion (baggrund og layout) --- */
   .top {
-    min-height: auto;
-    padding: 20px 0;
-    background-image: none;
-    background-color: #f4ebff;
+    min-height: auto;                                                               /* Højden tilpasses indholdet */
+    padding: 20px 0;                                                                /* Lodret luft top og bund */
+    background-image: none;                                                         /* Fjerner baggrundsbilledet */
+    background-color: #f4ebff;                                                    /* Lys lilla baggrund */
+    box-shadow: none;                                                               /* Fjerner skyggeeffekt */
   }
 
+  /* --- Overordnet tekst og baggrundsfarve --- */
   body {
-    background-color: white;
-    color: #3f3260;
+    background-color: white;                                                     /* Hvid baggrund på mobil */
+    color: #3f3260;                                                              /* Mørk lilla tekstfarve */
   }
 
+  /* --- Venstre og højre kolonne (tekstindhold) --- */
   .left-column,
   .right-column {
-    font-size: 1em;
-    line-height: 1.6;
-    padding: 5px 0;
+    font-size: 1em;                                                                /* Standard skriftstørrelse */
+    line-height: 1.6;                                                              /* Luft mellem linjerne */
+    padding: 5px 0;                                                                /* Lodret luft omkring kolonner */
   }
 
+  /* --- Header-boks (profilbillede og introduktion) --- */
   .header-box {
-    display: flex;
-    flex-direction: column;                                                  /* Lægger indholdet vandret */
-    justify-content: space-between;                                       /* Skubber tekst og billede væk fra hinanden */
-    align-items: center;                                                  /* Centrerer lodret */
-    width: 100%;
-    padding: 20px;
-    gap: 20px;
-    background-color: #f4ebff;
-    box-sizing: border-box;
+    display: flex;                                                                 /* Aktiverer flexbox layout */
+    flex-direction: column;                                                        /* Lægger elementer lodret */
+    justify-content: space-between;                                                /* Placerer elementer med mellemrum */
+    align-items: center;                                                           /* Centrerer elementerne horisontalt */
+    width: 100%;                                                                   /* Fylder hele bredden */
+    padding: 20px;                                                                 /* Luft omkring indholdet */
+    padding-top: 80px;                                                             /* Ekstra top-padding pga. profilbillede */
+    gap: 20px;                                                                     /* Luft mellem elementer */
+    background-color: #f4ebff;                                                   /* Lys lilla baggrund */
+    box-sizing: border-box;                                                        /* Padding tæller med i bredden */
   }
  
-  .profil {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+   /* --- Profilbillede i øverste højre hjørne --- */
+   .profil {
+    width: 100px;                                                                 /* Bredde på billedet */
+    height: 100px;                                                                /* Højde på billedet */
+    object-fit: cover;                                                            /* Fylder hele billedfeltet uden at strække */
+    position: absolute;                                                           /* Placeres frit inde i parent */
+    top: 10px;                                                                    /* 10px fra toppen */
+    right: 10px;                                                                  /* 10px fra højre */
+  }
+
+  /* --- Etiketten 'Student Programmer...' --- */
+  .label {
+    position: static;                                                             /* Følger normal flow */
+    transform: none;                                                              /* Ingen flytning */
+    font-size: 1em;                                                               /* Normal skriftstørrelse */
+    padding: 6px 12px;                                                            /* Indvendig luft */
+    margin: 0 auto;                                                               /* Centrerer på siden */
+    display: inline-block;                                                        /* Tillader padding og centreret tekst */
+    text-align: center;                                                           /* Tekst i midten */
+    background-color: #e352a0;                                                  /* Pink baggrund */
+    color: white;                                                               /* Hvid tekst */
+  }
+
+  /* --- Tekst-container til overskriften 'Hi! I'm' og navn --- */
+  .text h1 {
+    text-align: left;                                                             /* Venstrestillet tekst */
+    font-size: 1.5em;                                                             /* Forstørret skrift */
+    margin: 0;                                                                    /* Ingen ekstra afstand */
+    gap: 40px                                                                     /* Lodret afstand mellem .hilsen og .navn */
+  }
+
+  /* --- Hej! Jeg er... (første linje af overskrift) --- */
+  .hilsen {
+    font-size: 1.5em;                                                            /* Større tekst */
+    margin: 0;                                                                   /* Ingen ekstra afstand */
+  }
+
+  /* --- Navnet 'Halime Ekiz Sen' --- */
+  .navn {
+    font-size: 1.3em;                                                            /* Let forstørret navn */
+    margin-top: -90px;                                                           /* Trukket op for at modvirke afstand fra .hilsen */
+  }
+
+  /* --- Boksen med kontaktoplysninger (links) --- */
+  .kontakt-boks {
+    align-items: center;                                                         /* Centrerer indholdet */
+    text-align: center;                                                          /* Centrerer teksten */
+    margin-top: 1rem;                                                            /* Luft over boksen */
+  }
+
+  /* --- Layout for links (LinkedIn & GitHub) --- */
+  .kontakt-links {
+    flex-direction: column;                                                     /* Lægger links under hinanden */
+    gap: 12px;                                                                  /* Afstand mellem links */
+  }
+
+  /* --- Styling for selve linkene --- */
+  .kontakt-links a {
+    font-size: 1em;                                                             /* Normal skriftstørrelse */
+  }
+
+  /* --- Skjuler lodret streg mellem kontakt-links --- */
+  .divider {
+    display: none;                                                              /* Fjerner divideren på mobil */
+  }
+
+  /* --- Intro-boksen med tekst 'About Me' osv. --- */
+  .intro-box {
+    position: static;                                                           /* Følger standard flow */
+    width: 90%;                                                                 /* Fylder 90% af skærmens bredde */
+    margin: 20px auto 0 auto;                                                   /* Centreret og med luft oppefra */
+    padding: 15px;                                                              /* Luft indvendigt */
+    font-size: 0.95em;                                                          /* Let reduceret tekststørrelse */
+    line-height: 1.7;                                                           /* Luft mellem linjer */
+    background-color: #ccb2ec;                                                /* Lys lilla baggrund */
+  }
+
+  /* --- Sektion med venstre og højre kolonne --- */
+  .section-2 {
+    margin-top: -190px;                                                         /* Trukket op så den kommer tættere på intro */
+  }
+
+  .info-box { 
+    flex-direction: column;                                                     /* Indholdet vises i en lodret kolonne i stedet for vandret */
+    width: 100%;                                                                /* Boksen fylder 95% af den tilgængelige bredde */
+    padding: 15px 18px;                                                         /* 30px luft foroven og forneden, 20px i siderne */
+    margin: 0 auto;                                                             /* Centrerer boksen horisontalt (auto margin i siderne) */
+    box-sizing: border-box;                                                     /* Inkluderer padding og border i elementets samlede bredde og højde */
+    gap: 15px;                                                                  /* Afstand mellem børn/elements inde i boksen */
   }
   
-  .text h1 {
-    text-align: left;
-    font-size: 1.5em;
-    margin: 0;
-  }
-
-  .hilsen {
-    font-size: 1.2em;
-    margin-bottom: 0;
-  }
-
-  .navn {
-    font-size: 1.3em;
-  }
-
-  .label {
-    position: static;
-    transform: none;
-    font-size: 1em;
-    padding: 6px 12px;
-    margin: 0 auto;
-    display: inline-block;
-    text-align: center;
-    background-color: #e352a0;
-    color: white;
-  }
-
-  .kontakt-boks {
-    align-items: center;
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  .kontakt-links {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .kontakt-links a {
-    font-size: 1em;
-  }
-
-  .divider {
-    display: none;
-  }
-
-  .intro-box {
-    position: static;
-    width: 90%;
-    margin: 20px auto 0 auto;
-    padding: 15px;
-    font-size: 0.95em;
-    line-height: 1.7;
-    background-color: #ccb2ec;
-  }
-
-  .section-2 {
-    margin-top: 40px;
-  }
-
-  .info-box {
-    flex-direction: column;
-    width: 95%;
-    padding: 30px 20px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    gap: 40px;
-  }
-
+  /* --- Kolonnerne på mobil: Venstre og højre kolonne vises under hinanden --- */
   .left-column,
   .right-column {
-    width: 100%;
-    border-right: none;
-    padding: 0;
+    width: 100%;                                                                /* Fylder hele skærmens bredde */
+    border-right: none;                                                         /* Fjerner lodret skillelinje mellem kolonnerne */
+    padding: 0;                                                                 /* Fjerner ekstra indvendig luft */
   }
 
+  /* --- Evolution Journey billedet (timeline illustration) --- */
   .evolution-billede {
-    width: 100%;
-    margin-top: 30px;
+    width: 100%;                                                                /* Fylder hele bredden af containeren */
+    margin-top: 0px;                                                            /* Ingen luft over billedet */
+    transform: translateX(45px);                                                /* Skubber billedet 45px mod højre */
+    margin-bottom: 20px;                                                        /* 20px luft under billedet */
   }
 }
 
-/* === TVINGER LYS TEMA VED DARK MODE === */
+/* === DARK MODE OVERRIDE – Tvinger lys tema selvom brugeren har mørkt systemtema === */
 @media (prefers-color-scheme: dark) {
   body, .top, .info-box, .header-box, .intro-box {
-    background-color: #c6badb !important;
-    color: #3f3260 !important;
+    background-color: #c6badb !important;                                     /* Lilla/lys baggrund i dark mode */
+    color: #3f3260 !important;                                                /* Mørk lilla tekstfarve */
   }
 }
