@@ -488,7 +488,7 @@
 
   .header-box {
     display: flex;
-    flex-direction: row;                                                  /* Lægger indholdet vandret */
+    flex-direction: column;                                                  /* Lægger indholdet vandret */
     justify-content: space-between;                                       /* Skubber tekst og billede væk fra hinanden */
     align-items: center;                                                  /* Centrerer lodret */
     width: 100%;
