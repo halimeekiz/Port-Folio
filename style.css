@@ -152,7 +152,7 @@
 .divider {
   width: 1px;                                                                            /* Tykkelse af stregen */
   height: 15px;                                                                          /* Højden på stregen */
-  background-color: #e0e0e0;                                                           /* Lys grå farve til stregen */
+  background-color: #807272;                                                           /* Lys grå farve til stregen */
 }
 
  /* INTRO BOX - Om mig! */
@@ -192,7 +192,7 @@
 
  /* Hele sektionen der indeholder både venstre og højre kolonne */
 .section-2 {
-  margin-top: 120px;                                                                     /* Afstand til toppen af sektionen */
+  margin-top: 120px;                                                                    /* Afstand til toppen af sektionen */
   padding-top: 0;                                                                       /* Ingen ekstra luft i toppen */
   padding-bottom: 100px;                                                                /* Luft i bunden af sektionen */
   position: relative;                                                                   /* Position relativt for at kunne stable elementer */
@@ -249,33 +249,41 @@
   margin-bottom: 30px;                                                                  /* Luft under overskriften */
   position: relative;                                                                   /* Relativ positionering */
   padding-bottom: 10px;                                                                 /* Luft under teksten før stregen */
-  border-bottom: 2px solid #eee;                                                      /* Lys grå bundstreg */
+}
+
+.experience-box h2::after {
+  content: "";                                                                          /* Påkrævet for at pseudo-elementet vises */
+  display: block;                                                                       /* Gør den til blokniveau */
+  width: 90%;                                                                           /* Justér bredden på linjen (fx 60% af teksten) */
+  margin: 0 auto;                                                                       /* Centrerer linjen */
+  margin-top: 10px;                                                                     /* Luft over linjen */
+  border-bottom: 2px solid #807272;                                                   /* Samme farve og tykkelse som før */
 }
 
 /* Timeline container der holder stregen og punkterne */
 .timeline {
   position: relative;                                                                   /* Relativ positionering */
-  margin-left: 30px;                                                                    /* Luft til venstre */
-  padding-left: 20px;                                                                   /* Luft inde i boksen */
+  margin-left: 50px;                                                                    /* Luft til venstre */
+  padding-left: -80px;                                                                  /* Luft inde i boksen */
 }
-
 
 /* Den lodrette streg i timeline */
 .timeline::before {
   content: "";                                                                          /* Tomt indhold til at skabe stregen */
   position: absolute;
-  left: -7;
+  left: -15;
   top: 5px;
   bottom: 0;
   width: 3px;                                                                           /* Tykkelse på stregen */
   background: #e352a0;                                                                /* Pink farve til stregen */
+  margin-left: -30px;
 }
 
 /* Hvert punkt i timeline (arbejdserfaring) */
 .timeline-item {
   position: relative;                                                                   /* Relativ position */
   margin-bottom: 50px;                                                                  /* Luft mellem hvert job */
-  padding-left: 40px;                                                                   /* Luft til venstre for indholdet */
+  padding-left: 0px;                                                                   /* Luft til venstre for indholdet */
 }
 
 /* Prik ved hvert job */
@@ -289,6 +297,7 @@
   border-radius: 50%;                                                                   /* Gør prikken rund */
   border: 2px solid white;                                                            /* Hvid kant rundt om prikken */
   z-index: 1;                                                                           /* Sørger for at ligge over stregen */
+  margin-left: -30px;
 }
 
 /* Årstal badge */
@@ -307,6 +316,7 @@
   margin: 10px 0 5px 0;                                                                 /* Luft over og under overskriften */
   color: #3f3260;                                                                     /* Mørk lilla tekstfarve */
   font-weight: bold;                                                                    /* Fed tekst */
+  margin-left: -10px;
 }
 
 /* Jobtitel */
@@ -314,11 +324,13 @@
   display: block;                                                                       /* Viser teksten som blok */
   margin-bottom: 8px;                                                                   /* Luft under teksten */
   color: #3f3260;                                                                     /* Mørk lilla farve */
+  margin-right: 10px;
+  margin-left: -10px;
 }
 
 /* Liste over opgaver */
 .timeline-content ul {
-  padding-left: 20px;                                                                   /* Luft ind til venstre for liste */
+  padding-left: -20px;                                                                   /* Luft ind til venstre for liste */
 }
 
 /* Opgaveliste punkter */
@@ -326,6 +338,7 @@
   color: #333;                                                                        /* Mørkegrå tekstfarve */
   margin-bottom: 8px;                                                                   /* Luft under hvert punkt */
   line-height: 1.6;                                                                     /* Linjeafstand */
+  margin-left: -20px;
 }
 
 .evolution-billede {
@@ -362,7 +375,7 @@
   text-align: center;
   font-size: 1.5em;                                                                     /* Større tekst */
   margin-bottom: 15px;                                                                  /* Luft under overskriften */
-  border-bottom: 2px solid #eee;                                                      /* Lys grå bundstreg */
+  border-bottom: 2px solid #807272;                                                   /* Grå bundstreg */
   padding-bottom: 5px;                                                                  /* Luft under teksten */
 }
 
@@ -467,7 +480,6 @@
 /* === MOBILVENLIG VISNING UNDER 768PX === */
 @media (max-width: 768px) {
 
-
 /* --- Øverste sektion (baggrund og layout) --- */
   .top {
     min-height: auto;                                                               /* Højden tilpasses indholdet */
@@ -488,7 +500,7 @@
   .right-column {
     font-size: 1em;                                                                /* Standard skriftstørrelse */
     line-height: 1.6;                                                              /* Luft mellem linjerne */
-    padding: 5px 0;                                                                /* Lodret luft omkring kolonner */
+    padding: 0px 0;                                                                /* Lodret luft omkring kolonner */
   }
 
   /* --- Header-boks (profilbillede og introduktion) --- */
@@ -507,34 +519,34 @@
  
    /* --- Profilbillede i øverste højre hjørne --- */
    .profil {
-    width: 100px;                                                                 /* Bredde på billedet */
-    height: 100px;                                                                /* Højde på billedet */
-    object-fit: cover;                                                            /* Fylder hele billedfeltet uden at strække */
-    position: absolute;                                                           /* Placeres frit inde i parent */
-    top: 10px;                                                                    /* 10px fra toppen */
-    right: 10px;                                                                  /* 10px fra højre */
+    width: 100px;                                                                  /* Bredde på billedet */
+    height: 100px;                                                                 /* Højde på billedet */
+    object-fit: cover;                                                             /* Fylder hele billedfeltet uden at strække */
+    position: absolute;                                                            /* Placeres frit inde i parent */
+    top: 10px;                                                                     /* 10px fra toppen */
+    right: 10px;                                                                   /* 10px fra højre */
   }
 
   /* --- Etiketten 'Student Programmer...' --- */
   .label {
-    position: static;                                                             /* Følger normal flow */
-    transform: none;                                                              /* Ingen flytning */
-    font-size: 1em;                                                               /* Normal skriftstørrelse */
-    padding: 6px 12px;                                                            /* Indvendig luft */
-    margin: 0 auto;                                                               /* Centrerer på siden */
-    display: inline-block;                                                        /* Tillader padding og centreret tekst */
-    text-align: center;                                                           /* Tekst i midten */
-    background-color: #e352a0;                                                  /* Pink baggrund */
-    color: white;                                                               /* Hvid tekst */
+    position: static;                                                              /* Følger normal flow */
+    transform: none;                                                               /* Ingen flytning */
+    font-size: 1em;                                                                /* Normal skriftstørrelse */
+    padding: 6px 12px;                                                             /* Indvendig luft */
+    margin: 0 auto;                                                                /* Centrerer på siden */
+    display: inline-block;                                                         /* Tillader padding og centreret tekst */
+    text-align: center;                                                            /* Tekst i midten */
+    background-color: #e352a0;                                                   /* Pink baggrund */
+    color: white;                                                                /* Hvid tekst */
   }
 
   /* --- Tekst-container til overskriften 'Hi! I'm' og navn --- */
   .text h1 {
-    text-align: left;                                                             /* Venstrestillet tekst */
-    font-size: 1.5em;                                                             /* Forstørret skrift */
-    margin: 0;                                                                    /* Ingen ekstra afstand */
-    gap: 40px                                                                     /* Lodret afstand mellem .hilsen og .navn */
-  }
+    text-align: left;                                                              /* Venstrestillet tekst */
+    font-size: 1.5em;                                                              /* Forstørret skrift */
+    margin: 0;                                                                     /* Ingen ekstra afstand */
+    gap: 40px                                                                      /* Lodret afstand mellem .hilsen og .navn */
+  } 
 
   /* --- Hej! Jeg er... (første linje af overskrift) --- */
   .hilsen {
@@ -660,4 +672,30 @@
     top: 0;
     left: 0;
   }
+
+    /* === Ekstra mobil-styling for højre kolonne === */
+    .right-column {
+      background-color: white;
+      padding: 5px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+  
+    .skills-section,
+    .education-section,
+    .Languages-section {
+      background-color: #f4ebff;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .left-column {
+      padding: 20 20px;                                                        /* Giver luft til venstre og højre for teksten */
+    }
+    
+    .right-column {
+      padding: 20 20px;
+    }
+    
 }
